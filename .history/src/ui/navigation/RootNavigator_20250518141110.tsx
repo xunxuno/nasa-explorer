@@ -40,7 +40,7 @@ export default function RootNavigator() {
         <Stack.Screen
           name="MarsWeather"
           component={MarsWeatherScreen}
-          options={{ title: 'Mars Weather' }}
+          options={{ title: 'Mars Weather (InSight)' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
