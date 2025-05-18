@@ -18,7 +18,7 @@ export default function RootNavigator() {
     return (
     <NavigationContainer theme={colorScheme === 'dark' ? NavDark : NavLight}>
       <Stack.Navigator
-        initialRouteName="Epic"
+        initialRouteName="Apod"
         screenOptions={{
           headerShown: true,
           headerTitleAlign: 'center',
