@@ -23,7 +23,7 @@ export default function RootNavigator() {
     return (
     <NavigationContainer theme={colorScheme === 'dark' ? NavDark : NavLight}>
       <Stack.Navigator
-        initialRouteName="Neos"
+        initialRouteName="MarsWeather"
         screenOptions={{
           headerShown: true,
           headerTitleAlign: 'center',

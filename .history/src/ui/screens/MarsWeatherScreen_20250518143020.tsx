@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { useMarsWeather } from '../../presentation/useMarsWeather';
 import { useTheme } from '@react-navigation/native';
+import WindRose from '../../presentation/InSight/WindRose';
 
 export default function MarsWeatherScreen() {
   const { sols, status, error, refresh } = useMarsWeather();
@@ -31,21 +32,23 @@ export default function MarsWeatherScreen() {
       contentContainerStyle={{ padding: 16 }}
       renderItem={({ item }) => (
         <View style={[styles.card, { backgroundColor: colors.card }]}>
-          <Text style={[styles.sol, { color: colors.text }]}>Sol {item.sol}</Text>
-          <Text style={{ color: colors.text }}>
-            Temp ⬇ {item.temp.mn.toFixed(0)}°C | ⬆ {item.temp.mx.toFixed(0)}°C
-          </Text>
-          <Text style={{ color: colors.text }}>
-            Presión: {item.pressure.av.toFixed(0)} Pa
-          </Text>
-          <Text style={{ color: colors.text }}>
-            Viento: {item.wind.av.toFixed(0)} m/s
-          </Text>
-          <Text style={{ color: colors.text, fontStyle: 'italic' }}>
-            Estación marciana: {item.season}
-          </Text>
-        </View>
-      )}
+            <Text style={[styles.sol, { color: colors.text }]}>Sol {item.sol}</Text>
+
+            {/* Gráfico en un contenedor independiente */}
+            <WindRose speed={item.wind.av} />
+
+            {/* Demás textos */}
+            <Text style={{ color: colors.text, marginTop: 4 }}>
+                Temp ⬇ {item.temp.mn.toFixed(0)}°C | ⬆ {item.temp.mx.toFixed(0)}°C
+            </Text>
+            <Text style={{ color: colors.text }}>
+                Presión: {item.pressure.av.toFixed(0)} Pa
+            </Text>
+            <Text style={{ color: colors.text, fontStyle: 'italic' }}>
+                Estación: {item.season}
+            </Text>
+            </View>
+        )}
       refreshing={false}
       onRefresh={refresh}
     />

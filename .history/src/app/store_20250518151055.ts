@@ -20,7 +20,6 @@ const persistConfig = {
   whitelist: ['apod'],
 };
 
-
 export const store = configureStore({
   reducer: persistReducer(persistConfig, rootReducer),
   middleware: getDefault =>
