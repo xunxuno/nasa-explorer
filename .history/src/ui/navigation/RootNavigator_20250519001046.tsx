@@ -8,8 +8,8 @@ import DrawerNavigator from './DrawerNavigator';
 export default function RootNavigator() {
   const colorScheme = Appearance.getColorScheme();
   return (
-    <NavigationContainer theme={colorScheme === 'dark' ? NavDark : NavLight}>
+
       <DrawerNavigator />
-    </NavigationContainer>
+
   );
 }
