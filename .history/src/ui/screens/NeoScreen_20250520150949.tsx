@@ -28,9 +28,6 @@ export default function NeoScreen() {
   // Animación fondo
   const bg = useSharedValue(colors.background);
 
-  const [hasSearched, setHasSearched] = useState(false);
-
-
   useEffect(() => {
     bg.value = withTiming(colors.background, { duration: 400 });
   }, [colors.background]);
@@ -41,15 +38,14 @@ export default function NeoScreen() {
   }));
 
   useEffect(() => {
-    if (hasSearched) refresh();
-  }, [refresh, hasSearched]);
+    refresh();
+  }, [refresh]);
 
   const loadMore = () => {
-  setHasSearched(true); // activar flag
-  const prev = addDays(new Date(currentDate), -1);
-  const iso = formatISO(prev, { representation: 'date' });
-  setCurrentDate(iso);
-};
+    const prev = addDays(new Date(currentDate), -1);
+    const iso = formatISO(prev, { representation: 'date' });
+    setCurrentDate(iso);
+  };
 
   if (status === 'loading' && neos.length === 0) return <AsteroidLoader />;
 
