@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from './hooks';
-import { fetchEpicImages } from './epic/epicSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { fetchEpicImages } from './epicSlice';
 
 export const useEpicImages = (date: string) => {
   const dispatch = useAppDispatch();

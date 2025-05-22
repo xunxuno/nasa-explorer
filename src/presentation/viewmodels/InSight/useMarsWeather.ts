@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from './hooks';
-import { fetchMarsWeather } from './InSight/marsWeatherSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { fetchMarsWeather } from './marsWeatherSlice';
 
 export const useMarsWeather = () => {
   const dispatch = useAppDispatch();
